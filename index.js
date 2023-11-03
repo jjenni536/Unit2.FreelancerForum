@@ -17,11 +17,17 @@ const freelancers = [
     // append to document
         document.body.append(h1One);
     
-// create const for p tag in between the two h1's
+// create const for p tag for avg starting pricing
+//this is where "avg starting price" calculation should take place
     const paragraph = document.createElement(`p`);
 
+
+//create function to calculate the avg starting place
+const sumPrices = freelancers.reduce((sum, freelancer) => sum + freelancer.price, 0);
+const avgStartingPrice = sumPrices / freelancers.length;
+
     // add text content to p tag
-        paragraph.textContent = `The average startign price is $30.`;
+    paragraph.textContent = `The average starting price is ${avgStartingPrice}.`;
 
     // append to document
         document.body.append(paragraph);
@@ -34,10 +40,65 @@ const freelancers = [
 
     // append to document
         document.body.append(h1Two);
+
+   
   
-  // test
-  console.log(h1One);
-  console.log(paragraph);
-  console.log(h1Two);
+// create function that displays names
+const Names = (freelancers) => {
+    return freelancers.map(freelancer => freelancer.name);
+   
+}
+// create array with names only
+const namesArr = Names(freelancers);
+
+// add styling to names array
+
+
+    // append to document
+        document.body.append(namesArr)
+
+ // add div for names
+ const div1 = document.createElement(`div`);
+
+ // append to document
+ document.body.appendChild(div1);
+
+ // add content for div
+ div1.textContent = `${namesArr}`
+
+
+// create function that displays occupation
+const occupations = (freelancers) => {
+    return freelancers.map(freelancer => freelancer.occupation);
+   
+}
+// create array with names only
+const occupationArr = occupations(freelancers);
+
+
+    // append to document
+        document.body.append(occupationArr);
+
+
+//create const for prices
+const prices = (freelancers) => {
+    return freelancers.map(freelancer => freelancer.price);
+    
+}
+// create array with names only
+const pricesArr = prices(freelancers);
+
+
+// append to document
+document.body.append(pricesArr);
+
+
+// create function for starting prices
+
+// create array with srating prices only
+
+
+// test
+
   console.log();
   console.log();
