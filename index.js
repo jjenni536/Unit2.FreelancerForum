@@ -18,11 +18,9 @@ const freelancers = [
         document.body.append(h1One);
     
 // create const for p tag for avg starting pricing
-//this is where "avg starting price" calculation should take place
     const paragraph = document.createElement(`p`);
 
-
-//create function to calculate the avg starting place
+//create function to calculate the avg starting price
 const sumPrices = freelancers.reduce((sum, freelancer) => sum + freelancer.price, 0);
 const avgStartingPrice = sumPrices / freelancers.length;
 
@@ -42,20 +40,13 @@ const avgStartingPrice = sumPrices / freelancers.length;
         document.body.append(h1Two);
 
    
-  
 // create function that displays names
 const Names = (freelancers) => {
     return freelancers.map(freelancer => freelancer.name);
    
 }
 // create array with names only
-const namesArr = Names(freelancers);
-
-// add styling to names array
-
-
-    // append to document
-        document.body.append(namesArr)
+const namesArr = Names(freelancers);   
 
  // add div for names
  const div1 = document.createElement(`div`);
@@ -75,30 +66,44 @@ const occupations = (freelancers) => {
 // create array with names only
 const occupationArr = occupations(freelancers);
 
+// add div for occupations
+const div2 = document.createElement(`div`);
 
-    // append to document
-        document.body.append(occupationArr);
+// append to document
+document.body.appendChild(div2);
+
+// add content for div2
+div2.textContent = `${occupationArr}`
 
 
 //create const for prices
 const prices = (freelancers) => {
     return freelancers.map(freelancer => freelancer.price);
-    
 }
+
 // create array with names only
 const pricesArr = prices(freelancers);
 
+// add div for occupations
+const div3 = document.createElement(`div`);
 
 // append to document
-document.body.append(pricesArr);
+document.body.appendChild(div3);
+
+// add content for div2
+div3.textContent = `${pricesArr}`;
 
 
-// create function for starting prices
+// add styling to elements
+h1One.setAttribute(`style`, `text-align: center;`);
+h1Two.setAttribute(`style`, `text-align: center;`)
+paragraph.setAttribute(`style`, `text-align: center;`)
+document.body.setAttribute(`style`, `border: solid; padding: 25px`)
 
-// create array with srating prices only
+    // add const for all divs (for styling)
+    const divs = document.querySelectorAll("div");
+    for (i = 0; i < divs.length; i++) {
+        divs[i].setAttribute(`style`, `text-align: center; display: flex; 
+        flex-wrap: wrap;  justify-content: center`);
+    }
 
-
-// test
-
-  console.log();
-  console.log();
